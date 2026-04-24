@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #0a0a0a;
+    color: #f0ece4;
+    overflow-x: hidden;
+  }
+
+  .grain {
+    position: fixed; inset: 0; pointer-events: none; z-index: 100;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.4;
+  }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.2rem 2.5rem;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid rgba(255,255,255,0.08);
+  }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.04em;
+    color: #f0ece4;
+  }
+
+  .logo span { color: #e8b84b; font-style: italic; }
+
+  nav a {
+    color: rgba(240,236,228,0.55);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  nav a:hover { color: #e8b84b; }
+
+  .nav-links { display: flex; gap: 2rem; }
+
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 6rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(232,184,75,0.07) 0%, transparent 70%),
+                radial-gradient(ellipse 40% 40% at 20% 80%, rgba(180,80,180,0.05) 0%, transparent 60%),
+                radial-gradient(ellipse 40% 40% at 80% 20%, rgba(80,140,220,0.04) 0%, transparent 60%);
+  }
+
+  .sparkle {
+    position: absolute;
+    width: 3px; height: 3px;
+    background: #e8b84b;
+    border-radius: 50%;
+    animation: twinkle 2.5s ease-in-out infinite;
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 1; transform: scale(1); }
+  }
+
+  .hero-content { position: relative; z-index: 2; max-width: 700px; }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #e8b84b;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    line-height: 1.05;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.4s forwards;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: #e8b84b;
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    color: rgba(240,236,228,0.55);
+    line-height: 1.7;
+    max-width: 480px;
+    margin: 0 auto 2.5rem;
+    font-weight: 300;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.6s forwards;
+  }
+
+  .btn-group {
+    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.8s forwards;
+  }
+
+  .btn {
+    padding: 0.85rem 2rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .btn-primary {
+    background: #e8b84b;
+    color: #0a0a0a;
+    border-radius: 2px;
+  }
+
+  .btn-primary:hover { background: #f0c962; transform: translateY(-1px); }
+
+  .btn-secondary {
+    background: transparent;
+    color: #f0ece4;
+    border: 0.5px solid rgba(240,236,228,0.3);
+    border-radius: 2px;
+  }
+
+  .btn-secondary:hover { border-color: rgba(240,236,228,0.7); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  section { padding: 6rem 2rem; }
+
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #e8b84b;
+    margin-bottom: 1rem;
+    font-weight: 400;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .products {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5px;
+    margin-top: 4rem;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .product-card {
+    background: #111;
+    padding: 2.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .product-card:hover { background: #161616; }
+
+  .product-card:hover .card-accent { opacity: 1; }
+
+  .card-accent {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #e8b84b, transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .product-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .product-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    color: #f0ece4;
+  }
+
+  .product-desc {
+    font-size: 0.82rem;
+    color: rgba(240,236,228,0.45);
+    line-height: 1.6;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+  }
+
+  .product-price {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #e8b84b;
+    margin-bottom: 1.2rem;
+  }
+
+  .card-btn {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(240,236,228,0.5);
+    font-weight: 400;
+    cursor: pointer;
+    transition: color 0.2s;
+    background: none;
+    border: none;
+    font-family: inherit;
+  }
+
+  .product-card:hover .card-btn { color: #e8b84b; }
+
+  .about {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .about-text p {
+    font-size: 0.92rem;
+    color: rgba(240,236,228,0.6);
+    line-height: 1.85;
+    font-weight: 300;
+    margin-bottom: 1rem;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .stat {
+    background: #111;
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #e8b84b;
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(240,236,228,0.4);
+    font-weight: 300;
+    margin-top: 0.25rem;
+  }
+
+  .cta-section {
+    text-align: center;
+    background: #111;
+    border-top: 0.5px solid rgba(255,255,255,0.06);
+    border-bottom: 0.5px solid rgba(255,255,255,0.06);
+  }
+
+  .cta-section p {
+    color: rgba(240,236,228,0.5);
+    font-size: 0.9rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+  }
+
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.75rem;
+    color: rgba(240,236,228,0.2);
+    letter-spacing: 0.1em;
+  }
+
+  @media (max-width: 640px) {
+    .about { grid-template-columns: 1fr; gap: 3rem; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<nav>
+  <div class="logo">Spark<span>haus</span></div>
+  <div class="nav-links">
+    <a href="#shop">Shop</a>
+    <a href="#about">About</a>
+    <a href="#">Instagram</a>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+
+  <div class="sparkle" style="top:20%;left:15%;animation-delay:0s;"></div>
+  <div class="sparkle" style="top:35%;left:82%;animation-delay:0.7s;width:4px;height:4px;"></div>
+  <div class="sparkle" style="top:65%;left:8%;animation-delay:1.2s;"></div>
+  <div class="sparkle" style="top:75%;left:90%;animation-delay:0.4s;width:2px;height:2px;"></div>
+  <div class="sparkle" style="top:50%;left:50%;animation-delay:1.8s;width:2px;height:2px;background:#d4a0d4;"></div>
+  <div class="sparkle" style="top:25%;left:65%;animation-delay:2.1s;background:#88aaee;"></div>
+  <div class="sparkle" style="top:80%;left:40%;animation-delay:0.9s;background:#ee88aa;"></div>
+
+  <div class="hero-content">
+    <p class="eyebrow">Handmade · One of a Kind</p>
+    <h1>Lighters that <em>live</em><br>out loud</h1>
+    <p class="hero-sub">Every lighter is hand-bedazzled with rhinestones, gems, and glam. No two are ever the same. Built for the ones who refuse to be boring.</p>
+    <div class="btn-group">
+      <a class="btn btn-primary" href="#shop">Shop the collection</a>
+      <a class="btn btn-secondary" href="#about">Our story</a>
+    </div>
+  </div>
+</section>
+
+<section id="shop">
+  <div class="products">
+    <p class="section-label">The Collection</p>
+    <h2>Each one is a <em style="color:#e8b84b;font-style:italic;">little world</em></h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="card-accent"></div>
+        <span class="product-icon">💎</span>
+        <div class="product-name">Crystal Clear</div>
+        <div class="product-desc">All-white rhinestone cascade. Elegant, restrained, iconic.</div>
+        <div class="product-price">$18</div>
+        <button class="card-btn">Order via DM →</button>
+      </div>
+      <div class="product-card">
+        <div class="card-accent"></div>
+        <span class="product-icon">🌙</span>
+        <div class="product-name">Midnight</div>
+        <div class="product-desc">Dark base, deep violet gems. For the alt kids and night owls.</div>
+        <div class="product-price">$22</div>
+        <button class="card-btn">Order via DM →</button>
+      </div>
+      <div class="product-card">
+        <div class="card-accent"></div>
+        <span class="product-icon">🌸</span>
+        <div class="product-name">Rosé All Day</div>
+        <div class="product-desc">Pink, blush, and gold. Soft but make it fashion.</div>
+        <div class="product-price">$20</div>
+        <button class="card-btn">Order via DM →</button>
+      </div>
+      <div class="product-card">
+        <div class="card-accent"></div>
+        <span class="product-icon">✨</span>
+        <div class="product-name">Custom Order</div>
+        <div class="product-desc">Your colors, your vibe. We'll make it exist.</div>
+        <div class="product-price">From $25</div>
+        <button class="card-btn">Let's talk →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="about">
+    <div class="about-text">
+      <p class="section-label">About Sparkhaus</p>
+      <h2>Made with<br><em style="color:#e8b84b;font-style:italic;">real hands</em></h2>
+      <p>Sparkhaus started as an obsession — what if a lighter was the most interesting thing in the room? Every piece is hand-assembled, one gem at a time.</p>
+      <p>No factories. No bulk orders. Just a lot of rhinestones, a steady hand, and a refusal to make anything boring.</p>
+    </div>
+    <div class="about-stats">
+      <div class="stat">
+        <span class="stat-num">100%</span>
+        <span class="stat-label">Handmade</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">0</span>
+        <span class="stat-label">Duplicates</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">∞</span>
+        <span class="stat-label">Combinations</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">1</span>
+        <span class="stat-label">For you</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <p class="section-label">Get yours</p>
+  <h2>Ready to <em style="color:#e8b84b;font-style:italic;">spark</em> something?</h2>
+  <p>DM us on Instagram or TikTok to order. We ship anywhere.</p>
+  <div class="btn-group" style="justify-content:center;">
+    <a class="btn btn-primary" href="#">Instagram DM</a>
+    <a class="btn btn-secondary" href="#">TikTok</a>
+  </div>
+</section>
+
+<footer>
+  © 2025 Sparkhaus · All lighters handmade with love and too many rhinestones
+</footer>
+
+</body>
+</html>
