@@ -11,6 +11,7 @@
 <meta name="theme-color" content="#e8b84b">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23e8b84b' width='100' height='100'/><text x='50' y='65' font-size='60' text-anchor='middle' fill='%230a0a0a' font-weight='bold'>✨</text></svg>">
 <title>Sparkhaus - Lighters that Live Out Loud</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.css">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap');
 
@@ -350,53 +351,13 @@
     .nav-links { display: none; }
   }
 
-  .lightbox {
-    display: none;
-    position: fixed;
-    z-index: 999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.95);
-    align-items: center;
-    justify-content: center;
-  }
-
-  .lightbox.active {
-    display: flex;
-  }
-
-  .lightbox-content {
-    position: relative;
-    max-width: 90vw;
-    max-height: 90vh;
-  }
-
-  .lightbox-img {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-  }
-
-  .lightbox-close {
-    position: absolute;
-    top: 20px;
-    right: 40px;
-    font-size: 40px;
-    color: #f0ece4;
-    cursor: pointer;
-    font-weight: 300;
-  }
-
-  .lightbox-close:hover {
-    color: #e8b84b;
-  }
-
-  .product-icon {
-    cursor: pointer;
-  }
+  .glightbox { cursor: pointer; }
+  
+  .gslide__img img { max-height: 85vh; }
+  
+  .gclose, .gprev, .gnext { color: #f0ece4; }
+  
+  .gclose:hover, .gprev:hover, .gnext:hover { color: #e8b84b; }
 </style>
 </head>
 <body>
@@ -441,7 +402,7 @@
     <div class="product-grid">
       <div class="product-card">
         <div class="card-accent"></div>
-        <img class="product-icon" src="images/20260423_231948.jpg" alt="CMatcha Clear Lighter">
+        <a href="images/20260423_231948.jpg" class="glightbox" data-gallery="products"><img class="product-icon" src="images/20260423_231948.jpg" alt="CMatcha Clear Lighter"></a>
         <div class="product-name">Matcha Clear Lighter</div>
         <div class="product-desc">Matcha with cat faces and green leaves. Adorable and whimsical.</div>
         <div class="product-price">$18</div>
@@ -517,36 +478,9 @@
   © 2025 Sparkhaus · All lighters handmade with love and too many rhinestones
 </footer>
 
-<div id="imageLightbox" class="lightbox">
-  <div class="lightbox-content">
-    <span class="lightbox-close">&times;</span>
-    <img id="lightboxImg" class="lightbox-img" src="" alt="">
-  </div>
-</div>
-
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 <script>
-const lightbox = document.getElementById('imageLightbox');
-const lightboxImg = document.getElementById('lightboxImg');
-const productIcons = document.querySelectorAll('.product-icon');
-
-productIcons.forEach(icon => {
-  if (icon.tagName === 'IMG') {
-    icon.addEventListener('click', function() {
-      lightboxImg.src = this.src;
-      lightbox.classList.add('active');
-    });
-  }
-});
-
-document.querySelector('.lightbox-close').addEventListener('click', function() {
-  lightbox.classList.remove('active');
-});
-
-lightbox.addEventListener('click', function(e) {
-  if (e.target === lightbox) {
-    lightbox.classList.remove('active');
-  }
-});
+const lightbox = GLightbox();
 </script>
 
 </body>
