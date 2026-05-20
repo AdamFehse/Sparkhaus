@@ -12,14 +12,14 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Handmade, one-of-a-kind lighters bedazzled with rhinestones and gems. Custom orders available.">
+<meta name="description" content="The next Sparkhaus drop is loading. CHANGE — energy, passion, growth. Coming soon.">
 <meta name="keywords" content="lighter, bedazzled, handmade, custom, rhinestones, gems">
-<meta property="og:title" content="Sparkhaus - Lighters that Live Out Loud">
-<meta property="og:description" content="Handmade, one-of-a-kind lighters bedazzled with rhinestones and gems.">
+<meta property="og:title" content="Sparkhaus - CHANGE · New Drop Coming Soon">
+<meta property="og:description" content="The next Sparkhaus drop is loading. CHANGE — energy, passion, growth. Coming soon.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#120d15">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='24' fill='%23120d15' width='100' height='100'/><circle cx='30' cy='33' r='12' fill='%23ff6f91'/><circle cx='68' cy='31' r='10' fill='%235aa9ff'/><circle cx='34' cy='69' r='10' fill='%23ffe066'/><circle cx='68' cy='67' r='11' fill='%235ad7a4'/><text x='50' y='59' font-size='26' text-anchor='middle' fill='white'>✦</text></svg>">
-<title>Sparkhaus - Lighters that Live Out Loud</title>
+<title>Sparkhaus - CHANGE · New Drop Coming Soon</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.css">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap');
@@ -34,8 +34,8 @@
     --gem-yellow: #f1d68a;
     --gem-green: #8bd6ba;
     --gem-violet: #b796d9;
-    --panel: #120d15;
-    --panel-2: #17111c;
+    --panel: #1e1828;
+    --panel-2: #251e30;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -43,10 +43,10 @@
   body {
     font-family: 'DM Sans', sans-serif;
     background:
-      radial-gradient(circle at top left, rgba(139,214,186,0.1), transparent 28%),
-      radial-gradient(circle at 82% 20%, rgba(241,214,138,0.05), transparent 20%),
-      radial-gradient(circle at 74% 72%, rgba(139,214,186,0.06), transparent 22%),
-      linear-gradient(180deg, #0b0910, #09070d 45%, #07060a);
+      radial-gradient(circle at top left, rgba(139,214,186,0.15), transparent 30%),
+      radial-gradient(circle at 82% 20%, rgba(241,214,138,0.1), transparent 25%),
+      radial-gradient(circle at 74% 72%, rgba(139,214,186,0.1), transparent 28%),
+      linear-gradient(180deg, #15101d, #120d1a 45%, #0f0b17);
     color: #f0ece4;
     overflow-x: hidden;
   }
@@ -61,7 +61,7 @@
     position: fixed; top: 0; left: 0; right: 0; z-index: 50;
     display: flex; justify-content: space-between; align-items: center;
     padding: 1.2rem 2.5rem;
-    background: rgba(10,10,10,0.85);
+    background: rgba(21,16,29,0.9);
     backdrop-filter: blur(12px);
     border-bottom: 0.5px solid rgba(255,255,255,0.08);
   }
@@ -93,22 +93,47 @@
   .nav-links { display: flex; gap: 2rem; }
 
   .hero {
-    min-height: 92vh;
-    display: flex;
-    align-items: center;
-    padding: 6.5rem 2rem 3rem;
+    height: 100vh;
     position: relative;
     overflow: hidden;
+    display: grid;
+    place-items: center;
+    padding: 6.5rem 2rem;
   }
 
-  .hero-bg {
+  .hero-shell {
+    position: relative;
+    z-index: 2;
+    width: min(820px, 100%);
+    text-align: center;
+  }
+
+  .hero-bg-image {
+    position: absolute; inset: 0;
+    background-image: url('images/GroupShot1.jpg');
+    background-size: cover;
+    background-position: center 38%;
+    filter: saturate(1.05) brightness(0.65);
+    animation: heroZoom 12s ease-in-out infinite alternate;
+  }
+
+  @keyframes heroZoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.06); }
+  }
+
+  .hero-overlay {
     position: absolute; inset: 0;
     background:
-      radial-gradient(ellipse 80% 60% at 18% 30%, rgba(139,214,186,0.14) 0%, transparent 72%),
-      radial-gradient(ellipse 46% 46% at 82% 22%, rgba(var(--accent-rgb), 0.1) 0%, transparent 58%),
-      radial-gradient(ellipse 34% 34% at 62% 46%, rgba(241,214,138,0.08) 0%, transparent 50%),
-      radial-gradient(ellipse 34% 34% at 74% 76%, rgba(139,214,186,0.08) 0%, transparent 48%),
-      linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+      linear-gradient(180deg, rgba(21,16,29,0.55) 0%, rgba(21,16,29,0.88) 55%, #0f0b17 100%),
+      radial-gradient(ellipse 70% 50% at 50% 30%, rgba(139,214,186,0.08) 0%, transparent 70%);
+  }
+
+  .hero-ambient {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 50% 40% at 65% 35%, rgba(var(--accent-rgb), 0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 40% at 30% 65%, rgba(139,214,186,0.08) 0%, transparent 55%);
   }
 
   .sparkle {
@@ -128,16 +153,26 @@
   .hero-shell {
     position: relative;
     z-index: 2;
-    width: min(1180px, 100%);
+    width: min(820px, 100%);
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.95fr);
-    gap: 3.5rem;
-    align-items: center;
+    text-align: center;
   }
 
   .hero-content {
-    max-width: 620px;
+    max-width: 100%;
+  }
+
+  .hero-sub {
+    max-width: 560px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .btn-group {
+    justify-content: center;
+  }
+
+  .hero-notes {
+    justify-content: center;
   }
 
   .eyebrow {
@@ -148,49 +183,52 @@
     margin-bottom: 1.5rem;
     font-weight: 400;
     opacity: 0;
-    animation: fadeUp 0.8s 0.2s forwards;
+    animation: fadeUp 0.8s 0.2s forwards, pulseGlow 2.8s ease-in-out 1s infinite;
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% { text-shadow: 0 0 6px rgba(var(--accent-rgb), 0.2); }
+    50% { text-shadow: 0 0 18px rgba(var(--accent-rgb), 0.5), 0 0 32px rgba(var(--accent-rgb), 0.15); }
   }
 
   h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(3rem, 6vw, 5.2rem);
-    line-height: 1;
+    font-size: clamp(5rem, 14vw, 11rem);
+    line-height: 0.85;
     font-weight: 700;
-    margin-bottom: 1rem;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.5rem;
     opacity: 0;
-    animation: fadeUp 0.8s 0.4s forwards;
+    animation: fadeUp 0.8s 0.3s forwards;
   }
 
   h1 em {
     font-style: italic;
     background: linear-gradient(120deg, #effcf7 0%, var(--gem-green) 18%, #fff8fb 36%, var(--accent) 58%, var(--gem-yellow) 82%, #fff4cf 100%);
-    background-size: 160% 160%;
+    background-size: 200% 200%;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     text-shadow: none;
-    filter: drop-shadow(0 0 8px rgba(var(--accent-rgb), 0.18));
-    animation: gemShimmer 8s ease-in-out infinite;
+    filter: drop-shadow(0 0 12px rgba(var(--accent-rgb), 0.2)) drop-shadow(0 0 30px rgba(var(--accent-rgb), 0.1));
+    animation: gemShimmer 6s ease-in-out infinite;
   }
 
   .hero-sub {
-    font-size: 0.98rem;
-    color: rgba(240,236,228,0.72);
-    line-height: 1.62;
-    max-width: 520px;
-    margin: 0 0 1.5rem;
+    font-size: 1.05rem;
+    color: rgba(240,236,228,0.65);
+    line-height: 1.7;
     font-weight: 300;
     opacity: 0;
-    animation: fadeUp 0.8s 0.6s forwards;
+    animation: fadeUp 0.8s 0.5s forwards;
   }
 
   .btn-group {
     display: flex;
     gap: 1rem;
-    justify-content: flex-start;
     flex-wrap: wrap;
     opacity: 0;
-    animation: fadeUp 0.8s 0.8s forwards;
+    animation: fadeUp 0.8s 0.7s forwards;
   }
 
   .btn {
@@ -230,22 +268,6 @@
     color: #f0fff8;
   }
 
-  .product-card .btn-primary {
-    background: linear-gradient(135deg, #5ea78a, #79bea2);
-    color: #081018;
-    box-shadow: 0 10px 22px rgba(94,167,138,0.2);
-  }
-
-  .product-card .btn-primary:hover {
-    background: linear-gradient(135deg, #71b597, #88c8ad);
-  }
-
-  .btn-disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    pointer-events: none;
-  }
-
   .hero-notes {
     display: flex;
     flex-wrap: wrap;
@@ -273,19 +295,63 @@
     background: linear-gradient(135deg, rgba(139,214,186,0.1), rgba(255,255,255,0.03));
   }
 
+  .drop-status {
+    margin-top: 0.75rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(139,214,186,0.55);
+    font-weight: 300;
+    opacity: 0;
+    animation: fadeUp 0.8s 1.2s forwards;
+  }
+
+  .loading-dot {
+    animation: dotPulse 1.4s ease-in-out infinite;
+  }
+
+  .loading-dot:nth-child(2) { animation-delay: 0.2s; }
+  .loading-dot:nth-child(3) { animation-delay: 0.4s; }
+
+  @keyframes dotPulse {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
+  }
+
+  .floating-gem {
+    position: absolute;
+    z-index: 5;
+    width: 12px;
+    height: 12px;
+    color: var(--gem-color, var(--accent));
+    background: currentColor;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    box-shadow: 0 0 12px currentColor, 0 0 28px currentColor;
+    animation: floatGem 5s ease-in-out infinite;
+    opacity: 0.6;
+    pointer-events: none;
+    mix-blend-mode: screen;
+  }
+
+  @keyframes floatGem {
+    0%, 100% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.6; }
+    25% { opacity: 0.9; }
+    50% { transform: translateY(-28px) rotate(180deg) scale(1.2); opacity: 0.8; }
+    75% { opacity: 0.9; }
+  }
+
   .hero-media {
     position: relative;
-    min-height: 520px;
+    min-height: 580px;
     opacity: 0;
     animation: fadeUp 0.9s 0.45s forwards;
-    filter: drop-shadow(0 28px 46px rgba(0,0,0,0.26));
+    filter: drop-shadow(0 28px 60px rgba(0,0,0,0.35));
+    border-radius: 14px;
+    overflow: hidden;
   }
 
   .hero-card {
     position: absolute;
-    border: 1px solid rgba(255,255,255,0.08);
-    background: rgba(18,13,21,0.9);
-    box-shadow: 0 26px 60px rgba(0,0,0,0.34);
     overflow: hidden;
   }
 
@@ -294,11 +360,16 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .hero-card:hover img {
+    transform: scale(1.04);
   }
 
   .hero-card-main {
-    inset: 0 5% 18% 0;
-    transform: rotate(-3deg);
+    inset: 0;
+    border-radius: 14px;
   }
 
   .hero-card-detail {
@@ -315,7 +386,7 @@
     left: 1rem;
     bottom: 1rem;
     padding: 0.55rem 0.75rem;
-    background: linear-gradient(135deg, rgba(18,13,21,0.9), rgba(22,18,27,0.78));
+    background: linear-gradient(135deg, rgba(30,24,40,0.9), rgba(35,28,45,0.78));
     backdrop-filter: blur(8px);
     border: 1px solid rgba(255,255,255,0.08);
   }
@@ -340,14 +411,15 @@
 
   .hero-proof {
     position: absolute;
-    left: -3.1rem;
-    top: 1.6rem;
-    width: 156px;
-    padding: 0.85rem;
-    background: linear-gradient(145deg, rgba(18,13,21,0.95), rgba(26,18,33,0.9));
-    border: 1px solid rgba(255,255,255,0.08);
-    box-shadow: 0 18px 38px rgba(0,0,0,0.28), 0 0 0 1px rgba(139,214,186,0.08);
+    right: 1rem;
+    top: 1rem;
+    padding: 0.7rem 0.85rem;
+    background: linear-gradient(145deg, rgba(30,24,40,0.88), rgba(38,28,48,0.82));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 0 18px 38px rgba(0,0,0,0.28);
     z-index: 3;
+    border-radius: 10px;
   }
 
   .hero-proof-label {
@@ -418,85 +490,81 @@
 
   .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.5px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
     margin-top: 4rem;
-    background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(139,214,186,0.06));
   }
 
   .product-card {
     background: var(--panel);
-    padding: 2.5rem 2rem;
-    position: relative;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
     overflow: hidden;
-    cursor: pointer;
-    transition: background 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
   }
 
   .product-card:hover {
-    background: var(--panel-2);
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
   }
 
-  .product-card:hover .card-accent { opacity: 1; }
-
-  .card-accent {
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gem-green), var(--accent), transparent);
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-
-  .product-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
+  .product-card .glightbox {
     display: block;
-    max-width: 180px;
-    max-height: 180px;
-    object-fit: contain;
-    margin-left: auto;
-    margin-right: auto;
+    cursor: zoom-in;
+    overflow: hidden;
   }
 
-  .product-name {
+  .product-card .glightbox img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    transition: transform 0.4s;
+  }
+
+  .product-card:hover .glightbox img {
+    transform: scale(1.05);
+  }
+
+  .past-drop .product-card {
+    opacity: 0.85;
+    transition: opacity 0.3s, transform 0.3s, box-shadow 0.3s;
+  }
+
+  .past-drop .product-card:hover {
+    opacity: 1;
+  }
+
+  .sold-out-badge {
+    display: inline-block;
+    margin-top: 0.6rem;
+    padding: 0.3rem 0.7rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    background: rgba(240,123,151,0.12);
+    border: 0.5px solid rgba(240,123,151,0.2);
+    border-radius: 100px;
+    color: var(--accent);
+  }
+
+  .product-info {
+    padding: 1.25rem 1.5rem 0;
+  }
+
+  .product-title {
     font-family: 'Playfair Display', serif;
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     font-weight: 400;
-    margin-bottom: 0.5rem;
     color: #f0ece4;
+    margin-bottom: 0.4rem;
   }
 
   .product-desc {
     font-size: 0.82rem;
-    color: rgba(240,236,228,0.45);
-    line-height: 1.6;
-    font-weight: 300;
-    margin-bottom: 1.5rem;
-  }
-
-  .product-price {
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: var(--accent);
-    margin-bottom: 1.2rem;
-  }
-
-  .card-btn {
-    font-size: 0.72rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
     color: rgba(240,236,228,0.5);
-    font-weight: 400;
-    cursor: pointer;
-    transition: color 0.2s;
-    background: none;
-    border: none;
-    font-family: inherit;
+    line-height: 1.5;
+    font-weight: 300;
   }
-
-  .product-card:hover .card-btn { color: var(--gem-green); }
 
   .about {
     max-width: 900px;
@@ -548,7 +616,7 @@
 
   .cta-section {
     text-align: center;
-    background: linear-gradient(180deg, rgba(18,13,21,0.98), rgba(14,11,18,0.98));
+    background: linear-gradient(180deg, rgba(30,24,40,0.98), rgba(25,20,34,0.98));
     border-top: 0.5px solid rgba(255,255,255,0.06);
     border-bottom: 0.5px solid rgba(255,255,255,0.06);
   }
@@ -582,59 +650,21 @@
 
   @media (max-width: 1180px) {
     .hero {
-      min-height: 88vh;
-      padding: 6rem 2rem 2.5rem;
-    }
-
-    .hero-shell {
-      gap: 2.5rem;
-    }
-
-    .hero-media {
-      min-height: 460px;
+      padding: 6rem 2rem;
     }
   }
 
   @media (max-width: 980px) {
     .hero {
-      min-height: auto;
-      padding: 5.5rem 1.75rem 2.25rem;
-    }
-
-    .hero-shell {
-      grid-template-columns: 1fr;
-      gap: 2.75rem;
-    }
-
-    .hero-content {
-      max-width: 100%;
-      text-align: center;
+      padding: 5rem 1.75rem;
     }
 
     .hero-sub {
       font-size: 0.95rem;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .btn-group,
-    .hero-notes {
-      justify-content: center;
-    }
-
-    .hero-media {
-      min-height: 360px;
-      width: min(480px, 100%);
-      margin: 0 auto;
-    }
-
-    .hero-proof {
-      left: -0.5rem;
-      top: -1.5rem;
     }
 
     h1 {
-      font-size: clamp(2.7rem, 7vw, 4.2rem);
+      font-size: clamp(4rem, 14vw, 8rem);
     }
   }
 
@@ -643,34 +673,16 @@
     .nav-links { display: none; }
 
     .hero {
-      padding: 5rem 1.25rem 2rem;
+      padding: 4.5rem 1.25rem;
     }
 
-    .hero-media {
-      min-height: 300px;
-    }
-
-    .hero-card-main {
-      inset: 0 4% 18% 0;
-    }
-
-    .hero-card-detail {
-      width: 48%;
-    }
-
-    .hero-proof {
-      display: none;
-    }
-
-    .hero-card-label {
-      left: 0.8rem;
-      right: 0.8rem;
-      bottom: 0.8rem;
+    .hero-shell {
+      padding: 0;
     }
 
     h1 {
-      font-size: clamp(2.25rem, 10vw, 3.2rem);
-      line-height: 1.04;
+      font-size: clamp(3.2rem, 18vw, 5rem);
+      line-height: 0.85;
     }
 
     .hero-sub {
@@ -692,16 +704,16 @@
 
   @media (max-height: 760px) and (min-width: 981px) {
     .hero {
-      min-height: 90vh;
-      padding: 5.75rem 2rem 2rem;
-    }
-
-    .hero-shell {
-      gap: 2.25rem;
+      height: 100vh;
+      padding: 5rem 2rem;
     }
 
     h1 {
-      font-size: clamp(2.8rem, 5vw, 4.4rem);
+      font-size: clamp(3.5rem, 10vw, 5rem);
+    }
+
+    .hero-shell {
+      padding: 0;
     }
 
     .hero-sub {
@@ -721,6 +733,75 @@
   .gclose, .gprev, .gnext { color: #f0ece4; }
   
   .gclose:hover, .gprev:hover, .gnext:hover { color: var(--accent); }
+
+  .testimonials {
+    text-align: center;
+    padding: 5rem 2rem;
+    background: var(--panel-2);
+  }
+
+  .form-section {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 6rem 2rem;
+  }
+
+  .form-section .form-wrapper {
+    margin-top: 2.5rem;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.06);
+    background: var(--panel);
+  }
+
+  .form-section iframe {
+    display: block;
+    width: 100%;
+    height: 900px;
+    border: none;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    max-width: 960px;
+    margin: 2.5rem auto 0;
+  }
+
+  .testimonial-card {
+    background: var(--panel);
+    border: 1px solid rgba(var(--accent-rgb), 0.15);
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    text-align: left;
+    transition: border-color 0.3s ease;
+  }
+
+  .testimonial-card:hover {
+    border-color: rgba(var(--accent-rgb), 0.4);
+  }
+
+  .testimonial-stars {
+    color: var(--gem-yellow);
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: 2px;
+  }
+
+  .testimonial-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #d4cfe0;
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+
+  .testimonial-emoji {
+    font-size: 1.4rem;
+    letter-spacing: 4px;
+  }
 </style>
 </head>
 <body>
@@ -730,76 +811,173 @@
 <nav>
   <div class="logo">Spark<span>haus</span></div>
   <div class="nav-links">
-    <a href="#shop">Shop</a>
+    <a href="#past-drop">Last Drop</a>
+    <a href="#inquiries">Inquiries</a>
+    <a href="#reviews">Reviews</a>
     <a href="#about">About</a>
     <a href="https://www.instagram.com/savethetunas/" target="_blank">Instagram</a>
   </div>
 </nav>
 
 <section class="hero" id="home">
-  <div class="hero-bg"></div>
+  <div class="hero-bg-image"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-ambient"></div>
 
-  <div class="sparkle" style="top:20%;left:15%;animation-delay:0s;"></div>
-  <div class="sparkle" style="top:35%;left:82%;animation-delay:0.7s;width:4px;height:4px;"></div>
-  <div class="sparkle" style="top:65%;left:8%;animation-delay:1.2s;"></div>
-  <div class="sparkle" style="top:75%;left:90%;animation-delay:0.4s;width:2px;height:2px;"></div>
-  <div class="sparkle" style="top:50%;left:50%;animation-delay:1.8s;width:2px;height:2px;background:#d4a0d4;"></div>
-  <div class="sparkle" style="top:25%;left:65%;animation-delay:2.1s;background:#88aaee;"></div>
-  <div class="sparkle" style="top:80%;left:40%;animation-delay:0.9s;background:#ee88aa;"></div>
+  <div class="sparkle" style="top:18%;left:12%;animation-delay:0s;"></div>
+  <div class="sparkle" style="top:30%;left:85%;animation-delay:0.7s;width:4px;height:4px;"></div>
+  <div class="sparkle" style="top:60%;left:6%;animation-delay:1.2s;"></div>
+  <div class="sparkle" style="top:78%;left:92%;animation-delay:0.4s;width:2px;height:2px;"></div>
+  <div class="sparkle" style="top:45%;left:50%;animation-delay:1.8s;width:2px;height:2px;background:#d4a0d4;"></div>
+  <div class="sparkle" style="top:22%;left:60%;animation-delay:2.1s;background:#88aaee;"></div>
+  <div class="sparkle" style="top:82%;left:35%;animation-delay:0.9s;background:#ee88aa;"></div>
+  <div class="sparkle" style="top:10%;left:45%;animation-delay:2.5s;width:2px;height:2px;background:#ffe066;"></div>
+  <div class="sparkle" style="top:70%;left:18%;animation-delay:1.5s;width:2px;height:2px;background:#8bd6ba;"></div>
+
+  <div class="floating-gem" style="top:15%;right:12%;--gem-color:var(--gem-blue);animation-delay:0s;width:12px;height:12px;"></div>
+  <div class="floating-gem" style="top:28%;left:8%;--gem-color:var(--accent);animation-delay:1.4s;width:16px;height:16px;"></div>
+  <div class="floating-gem" style="bottom:25%;right:10%;--gem-color:var(--gem-yellow);animation-delay:2.6s;width:10px;height:10px;"></div>
+  <div class="floating-gem" style="top:58%;left:14%;--gem-color:var(--gem-green);animation-delay:0.9s;width:13px;height:13px;"></div>
+  <div class="floating-gem" style="bottom:15%;right:25%;--gem-color:var(--gem-violet);animation-delay:2s;width:11px;height:11px;"></div>
+  <div class="floating-gem" style="top:10%;left:28%;--gem-color:var(--gem-yellow);animation-delay:3.2s;width:8px;height:8px;"></div>
+  <div class="floating-gem" style="bottom:35%;left:5%;--gem-color:var(--gem-blue);animation-delay:1.8s;width:9px;height:9px;"></div>
 
   <div class="hero-shell">
     <div class="hero-content">
-      <p class="eyebrow">Handmade · One of a Kind </p>
-      <h1>Crafts with <br><em>Whole Universal Complete</em> energy</h1>
-      <p class="hero-sub">Sparkhaus makes hand-bedazzled lighters that feel <em>lost</em> between charm, sculpture, and <em> <strong>dare</strong> </em>. Every piece is built gem by gem, with zero duplicates and a lot of attitude.</p>
+      <p class="eyebrow">✦ New Drop · Coming Soon</p>
+      <h1><em>CHANGE</em></h1>
+      <p class="hero-sub">Energy. Passion. Growth. The next Sparkhaus drop is loading — a new chapter in gem, fire, and transformation. Get ready to thrive.</p>
       <div class="btn-group">
-        <a class="btn btn-primary" href="#shop">Shop the collection</a>
-        <a class="btn btn-secondary" href="https://www.instagram.com/savethetunas/" target="_blank" rel="noopener noreferrer">Order custom</a>
+        <a class="btn btn-primary" href="https://www.instagram.com/savethetunas/" target="_blank" rel="noopener noreferrer">Follow for updates</a>
+        <a class="btn btn-secondary" href="#about">Learn more</a>
       </div>
       <div class="hero-notes">
-        <div class="hero-note">One-off drops</div>
-        <div class="hero-note">Custom colorways</div>
-        <div class="hero-note">Ships anywhere</div>
+        <div class="hero-note">✦ I Got</div>
+        <div class="hero-note">✦ That</div>
+        <div class="hero-note">✦  OG</div>
+        <div class="hero-note">✦ In Me</div>
       </div>
-    </div>
-
-    <div class="hero-media">
-      <div class="hero-proof">
-        <div class="hero-proof-label">Why it hits</div>
-        <div class="hero-proof-stat">
-          <div>
-            <strong>100%</strong>
-            <span>Hand set by hand</span>
-          </div>
-          <div>
-            <strong>0</strong>
-            <span>Repeated designs</span>
-          </div>
-        </div>
-      </div>
-
-      <a href="images/GroupShot1.jpg" class="hero-card hero-card-main glightbox" data-gallery="hero-preview">
-        <img src="images/GroupShot1.jpg" alt="Group shot of handmade Sparkhaus lighter designs">
-        <div class="hero-card-label">
-          <strong>Current Drop</strong>
-          <span>Five moods, zero subtlety.</span>
-        </div>
-      </a>
-
-      <a href="images/20260423_231948.jpg" class="hero-card hero-card-detail glightbox" data-gallery="hero-preview">
-        <img src="images/20260423_231948.jpg" alt="Close-up of a green handmade Sparkhaus lighter with matcha-inspired details">
-      </a>
-
-      <a href="images/groupshot2.jpg" class="glightbox sr-only" data-gallery="hero-preview" tabindex="-1" aria-hidden="true"></a>
+      <div class="drop-status">drop loading<span class="loading-dot">.</span><span class="loading-dot">.</span><span class="loading-dot">.</span></div>
     </div>
   </div>
 </section>
 
-<section id="shop">
+<section class="past-drop" id="past-drop">
   <div class="products">
-    <p class="section-label">The Collection</p>
-    <h2>Each one is a <em style="color:var(--accent);font-style:italic;">little world</em></h2>
-    <div class="product-grid" id="productGrid"></div>
+    <p class="section-label">Sold Out</p>
+    <h2>The last <em style="color:var(--accent);font-style:italic;">drop</em></h2>
+    <p style="color:rgba(240,236,228,0.5);font-weight:300;max-width:540px;margin:0 auto;">Every piece is one of a kind. Here's what the last collection looked like before it was gone.</p>
+    <div class="product-grid">
+      <div class="product-card">
+        <a href="images/matcha0.jpg" class="glightbox" data-gallery="past-matcha">
+          <img src="images/matcha0.jpg" alt="Matcha Clear Lighter">
+        </a>
+        <a href="images/matcha1.jpg" class="glightbox sr-only" data-gallery="past-matcha" tabindex="-1" aria-hidden="true"></a>
+        <a href="images/matcha2.jpg" class="glightbox sr-only" data-gallery="past-matcha" tabindex="-1" aria-hidden="true"></a>
+        <a href="images/matcha3.jpg" class="glightbox sr-only" data-gallery="past-matcha" tabindex="-1" aria-hidden="true"></a>
+        <a href="images/matcha4.jpg" class="glightbox sr-only" data-gallery="past-matcha" tabindex="-1" aria-hidden="true"></a>
+        <a href="images/matcha5.jpg" class="glightbox sr-only" data-gallery="past-matcha" tabindex="-1" aria-hidden="true"></a>
+        <div class="product-info">
+          <h3 class="product-title">Matcha Clear Lighter</h3>
+          <p class="product-desc">Matcha cat-face lighter with green leaves and playful crystal detail.</p>
+          <span class="sold-out-badge">Sold Out</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <a href="images/richlikeme.jpg" class="glightbox" data-gallery="past-drop">
+          <img src="images/richlikeme.jpg" alt="Is He Rich Like Me">
+        </a>
+        <div class="product-info">
+          <h3 class="product-title">Is He Rich Like Me</h3>
+          <p class="product-desc">Pink and red gems with a gold pearl lining, no broke boys.</p>
+          <span class="sold-out-badge">Sold Out</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <a href="images/bluekeychain1.jpg" class="glightbox" data-gallery="past-blue">
+          <img src="images/bluekeychain1.jpg" alt="Blue Keychain Lighter">
+        </a>
+        <a href="images/bluekeychain2.jpg" class="glightbox sr-only" data-gallery="past-blue" tabindex="-1" aria-hidden="true"></a>
+        <div class="product-info">
+          <h3 class="product-title">Blue Keychain Lighter</h3>
+          <p class="product-desc">Blue bows, pink ribbons, blue gems, white hearts.</p>
+          <span class="sold-out-badge">Sold Out</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <a href="images/pinkkeychain1.jpg" class="glightbox" data-gallery="past-pink">
+          <img src="images/pinkkeychain1.jpg" alt="Pink Keychain Lighter">
+        </a>
+        <a href="images/pinkkeychain2.jpg" class="glightbox sr-only" data-gallery="past-pink" tabindex="-1" aria-hidden="true"></a>
+        <div class="product-info">
+          <h3 class="product-title">Pink Keychain Lighter</h3>
+          <p class="product-desc">Bubblegum pink shine with a keychain build and extra candy-color energy.</p>
+          <span class="sold-out-badge">Sold Out</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <a href="images/purplekeychain.jpg" class="glightbox" data-gallery="past-drop">
+          <img src="images/purplekeychain.jpg" alt="Purple Keychain Lighter">
+        </a>
+        <div class="product-info">
+          <h3 class="product-title">Purple Keychain Lighter</h3>
+          <p class="product-desc">Purple keychain build with a darker sparkle and a little more attitude.</p>
+          <span class="sold-out-badge">Sold Out</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <a href="images/blackDollar.jpg" class="glightbox" data-gallery="past-drop">
+          <img src="images/blackDollar.jpg" alt="Black Dollar Lighter">
+        </a>
+        <div class="product-info">
+          <h3 class="product-title">Black Dollar Lighter</h3>
+          <p class="product-desc">Black dollar energy with pink and red rhinestones.</p>
+          <span class="sold-out-badge">Sold Out</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <a href="images/vageeners1.jpg" class="glightbox" data-gallery="past-vageeners">
+          <img src="images/vageeners1.jpg" alt="Vageeners">
+        </a>
+        <a href="images/vageeners2.jpg" class="glightbox sr-only" data-gallery="past-vageeners" tabindex="-1" aria-hidden="true"></a>
+        <a href="images/vageeners3.jpg" class="glightbox sr-only" data-gallery="past-vageeners" tabindex="-1" aria-hidden="true"></a>
+        <div class="product-info">
+          <h3 class="product-title">Vageeners</h3>
+          <p class="product-desc">Handmade Vageeners.</p>
+          <span class="sold-out-badge">Sold Out</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="form-section" id="inquiries">
+  <p class="section-label">Get in touch</p>
+  <h2>Inquiries &amp; <em style="color:var(--accent);font-style:italic;">commissions</em></h2>
+  <div class="form-wrapper">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScAiyyQVX1C2vx6hZu1-P0ySHaLqJ-7oo9VMVa8zvPJdd1cyQ/viewform?usp=dialog" title="Inquiries & commissions form">Loading…</iframe>
+  </div>
+</section>
+
+<section class="testimonials" id="reviews">
+  <p class="section-label">What people say</p>
+  <h2>The vibe <em style="color:var(--accent);font-style:italic;">speaks</em> for itself</h2>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="testimonial-text">"Wow these are soo cool. I love them."</p>
+      <div class="testimonial-emoji">&#128156;&#10024;</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="testimonial-text">"This lighter saved my boring room from being boring."</p>
+      <div class="testimonial-emoji">&#127968;&#128142;</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="testimonial-text">"I need this."</p>
+      <div class="testimonial-emoji">&#128175;&#128293;</div>
+    </div>
   </div>
 </section>
 
@@ -833,11 +1011,11 @@
 </section>
 
 <section class="cta-section">
-  <p class="section-label">Get yours</p>
-  <h2>Ready to <em style="color:var(--accent);font-style:italic;">spark</em> something?</h2>
-  <p>DM us on Instagram to order. We ship anywhere.</p>
+  <p class="section-label">CHANGE is loading</p>
+  <h2>Ready to <em style="color:var(--accent);font-style:italic;">transform</em>?</h2>
+  <p>The next drop is coming. Follow us on Instagram to be the first to know.</p>
   <div class="btn-group" style="justify-content:center;">
-    <a class="btn btn-primary" href="https://www.instagram.com/savethetunas/" target="_blank">Instagram DM</a>
+    <a class="btn btn-primary" href="https://www.instagram.com/savethetunas/" target="_blank">Follow @savethetunas</a>
   </div>
 </section>
 
@@ -847,169 +1025,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 <script>
-const products = [
-  {
-    name: "Matcha Clear Lighter",
-    description: "Matcha cat-face lighter with green leaves and playful crystal detail.",
-    price: "$18",
-    ctaLabel: "SOLD",
-    ctaUrl: "#",
-    ctaClass: "btn btn-disabled",
-    coverImage: "images/matcha0.jpg",
-    galleryImages: [
-      "images/matcha0.jpg",
-      "images/matcha1.jpg",
-      "images/matcha2.jpg",
-      "images/matcha3.jpg",
-      "images/matcha4.jpg",
-      "images/matcha5.jpg",
-      "images/20260423_231948.jpg"
-    ],
-    alt: "Handmade matcha-themed lighter with cat faces, green leaves, and rhinestones"
-  },
-  {
-    name: "Is He Rich Like Me",
-    description: "Pink and red gems with a gold pearl lining, no broke boys.",
-    price: "$22",
-    ctaLabel: "SOLD",
-    ctaUrl: "#",
-    ctaClass: "btn btn-disabled",
-    coverImage: "images/richlikeme.jpg",
-    galleryImages: [
-      "images/richlikeme.jpg"
-    ],
-    alt: "Rhinestone lighter with rich gem detailing"
-  },
-  {
-    name: "Blue Keychain Lighter",
-    description: "Blue bows pink ribbons blue gems white hearts.",
-    price: "$25",
-    ctaLabel: "SOLD",
-    ctaUrl: "#",
-    ctaClass: "btn btn-disabled",
-    coverImage: "images/bluekeychain1.jpg",
-    galleryImages: [
-      "images/bluekeychain1.jpg",
-      "images/bluekeychain2.jpg"
-    ],
-    alt: "Blue handmade keychain lighter with rhinestone accents"
-  },
-  {
-    name: "Pink Keychain Lighter",
-    description: "Bubblegum pink shine with a keychain build and extra candy-color energy.",
-    price: "$25",
-    ctaLabel: "SOLD",
-    ctaUrl: "#",
-    ctaClass: "btn btn-disabled",
-    coverImage: "images/pinkkeychain1.jpg",
-    galleryImages: [
-      "images/pinkkeychain1.jpg",
-      "images/pinkkeychain2.jpg"
-    ],
-    alt: "Pink handmade keychain lighter with rhinestones"
-  },
-  {
-    name: "Purple Keychain Lighter",
-    description: "Purple keychain build with a darker sparkle and a little more attitude.",
-    price: "$25",
-    ctaLabel: "SOLD",
-    ctaUrl: "#",
-    ctaClass: "btn btn-disabled",
-    coverImage: "images/purplekeychain.jpg",
-    galleryImages: [
-      "images/purplekeychain.jpg"
-    ],
-    alt: "Purple handmade keychain lighter with crystal embellishment"
-  },
-  {
-    name: "Black Dollar Lighter",
-    description: "Black dollar energy with pink and red rhinestones.",
-    price: "$22",
-    ctaLabel: "SOLD",
-    ctaUrl: "#",
-    ctaClass: "btn btn-disabled",
-    coverImage: "images/blackDollar.jpg",
-    galleryImages: [
-      "images/blackDollar.jpg"
-    ],
-    alt: "Black rhinestone lighter with dollar-inspired styling"
-  },
-  {
-    name: "Vageeners",
-    description: "Handmade Vageeners",
-    price: "$10",
-    ctaLabel: "SOLD",
-    ctaUrl: "#",
-    ctaClass: "btn btn-disabled",
-    coverImage: "images/vageeners1.jpg",
-    galleryImages: [
-      "images/vageeners1.jpg",
-      "images/vageeners2.jpg",
-      "images/vageeners3.jpg"
-    ],
-    alt: "Handmade Vageeners"
-  },
-  {
-    name: "Custom Order",
-    description: "Your colors, your vibe. We will make it exist.",
-    price: "From $25",
-    ctaLabel: "Let's talk ->",
-    ctaUrl: "https://www.instagram.com/savethetunas/",
-    ctaClass: "card-btn",
-    emoji: "✨"
-  }
-];
-
-function escapeHtml(value) {
-  return String(value)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
-}
-
-function renderProductMedia(product, index) {
-  if (product.coverImage) {
-    const galleryName = `product-${index}`;
-    const hiddenGallery = (product.galleryImages || [])
-      .slice(1)
-      .map((imagePath) => (
-        `<a href="${escapeHtml(imagePath)}" class="glightbox sr-only" data-gallery="${galleryName}" tabindex="-1" aria-hidden="true"></a>`
-      ))
-      .join("");
-
-    return `
-      <a href="${escapeHtml(product.coverImage)}" class="glightbox" data-gallery="${galleryName}">
-        <img class="product-icon" src="${escapeHtml(product.coverImage)}" alt="${escapeHtml(product.alt || product.name)}">
-      </a>
-      ${hiddenGallery}
-    `;
-  }
-
-  return `<span class="product-icon" aria-hidden="true">${escapeHtml(product.emoji || "✨")}</span>`;
-}
-
-function renderProductCard(product, index) {
-  return `
-    <div class="product-card">
-      <div class="card-accent"></div>
-      ${renderProductMedia(product, index)}
-      <div class="product-name">${escapeHtml(product.name)}</div>
-      <div class="product-desc">${escapeHtml(product.description)}</div>
-      <div class="product-price">${escapeHtml(product.price)}</div>
-      <a class="${escapeHtml(product.ctaClass)}" href="${escapeHtml(product.ctaUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(product.ctaLabel)}</a>
-    </div>
-  `;
-}
-
-function renderProductGrid() {
-  const grid = document.getElementById("productGrid");
-  if (!grid) return;
-  grid.innerHTML = products.map(renderProductCard).join("");
-}
-
-renderProductGrid();
 const lightbox = GLightbox();
 </script>
 
