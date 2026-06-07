@@ -318,6 +318,55 @@
     50% { opacity: 1; }
   }
 
+  .countdown {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 1.4s forwards;
+  }
+
+  .countdown-unit {
+    text-align: center;
+    min-width: 60px;
+  }
+
+  .countdown-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--gem-green);
+    text-shadow: 0 0 14px rgba(139,214,186,0.2);
+    line-height: 1;
+    display: block;
+  }
+
+  .countdown-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(240,236,228,0.4);
+    font-weight: 300;
+    margin-top: 0.35rem;
+    display: block;
+  }
+
+  .countdown-sep {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: rgba(240,236,228,0.15);
+    align-self: flex-start;
+    margin-top: 0.3rem;
+  }
+
+  @media (max-width: 640px) {
+    .countdown { gap: 0.7rem; }
+    .countdown-num { font-size: 1.6rem; }
+    .countdown-unit { min-width: 42px; }
+    .countdown-sep { font-size: 1.2rem; margin-top: 0.15rem; }
+  }
+
   .floating-gem {
     position: absolute;
     z-index: 5;
@@ -858,6 +907,27 @@
         <div class="hero-note">✦ In Me</div>
       </div>
       <div class="drop-status">drop loading<span class="loading-dot">.</span><span class="loading-dot">.</span><span class="loading-dot">.</span></div>
+      <div class="countdown" id="countdown">
+        <div class="countdown-unit">
+          <span class="countdown-num" id="cd-days">00</span>
+          <span class="countdown-label">Days</span>
+        </div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-unit">
+          <span class="countdown-num" id="cd-hours">00</span>
+          <span class="countdown-label">Hours</span>
+        </div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-unit">
+          <span class="countdown-num" id="cd-mins">00</span>
+          <span class="countdown-label">Mins</span>
+        </div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-unit">
+          <span class="countdown-num" id="cd-secs">00</span>
+          <span class="countdown-label">Secs</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1026,6 +1096,44 @@
 <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 <script>
 const lightbox = GLightbox();
+
+(function() {
+  function getNextSunday() {
+    var now = new Date();
+    var d = new Date(now);
+    d.setDate(d.getDate() + (7 - d.getDay()) % 7);
+    // If today is Sunday and not midnight edge, target next Sunday
+    if (d.getDay() === now.getDay() && d.getTime() <= now.getTime()) {
+      d.setDate(d.getDate() + 7);
+    }
+    d.setHours(0, 0, 0, 0);
+    return d;
+  }
+
+  var target = getNextSunday();
+
+  function tick() {
+    var now = new Date();
+    var diff = target - now;
+    if (diff <= 0) {
+      // Reached Sunday — target next one
+      target = getNextSunday();
+      diff = target - now;
+    }
+    var secs = Math.floor(diff / 1000);
+    var d = Math.floor(secs / 86400);
+    var h = Math.floor((secs % 86400) / 3600);
+    var m = Math.floor((secs % 3600) / 60);
+    var s = secs % 60;
+    document.getElementById('cd-days').textContent = String(d).padStart(2, '0');
+    document.getElementById('cd-hours').textContent = String(h).padStart(2, '0');
+    document.getElementById('cd-mins').textContent = String(m).padStart(2, '0');
+    document.getElementById('cd-secs').textContent = String(s).padStart(2, '0');
+  }
+
+  tick();
+  setInterval(tick, 1000);
+})();
 </script>
 
 </body>
