@@ -1101,11 +1101,7 @@ const lightbox = GLightbox();
   function getNextSunday() {
     var now = new Date();
     var d = new Date(now);
-    d.setDate(d.getDate() + (7 - d.getDay()) % 7);
-    // If today is Sunday and not midnight edge, target next Sunday
-    if (d.getDay() === now.getDay() && d.getTime() <= now.getTime()) {
-      d.setDate(d.getDate() + 7);
-    }
+    d.setDate(d.getDate() + 10);
     d.setHours(0, 0, 0, 0);
     return d;
   }
