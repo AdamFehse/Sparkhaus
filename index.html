@@ -367,6 +367,15 @@
     .countdown-sep { font-size: 1.2rem; margin-top: 0.15rem; }
   }
 
+  .countdown-done {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    padding: 0.5rem 1rem;
+    text-shadow: 0 0 20px rgba(var(--accent-rgb), 0.4);
+}
+
   .floating-gem {
     position: absolute;
     z-index: 5;
@@ -1109,9 +1118,8 @@ const lightbox = GLightbox();
     var now = new Date();
     var diff = target - now;
     if (diff <= 0) {
-      // Reached Sunday — target next one
-      target = getNextSunday();
-      diff = target - now;
+      document.getElementById('countdown').innerHTML = '<div class="countdown-done">✦ It\'s here. The drop is live. ✦</div>';
+      return;
     }
     var secs = Math.floor(diff / 1000);
     var d = Math.floor(secs / 86400);
